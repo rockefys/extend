@@ -131,7 +131,7 @@ class Page {
         // 1 2 3 4 5
         $linkPage = "";
         for($i=1;$i<=$this->rollPage;$i++){
-            $page       =   ($nowCoolPage-1)*$this->rollPage+$i;
+            $page       =   $this->nowPage+$i-($this->nowPage > ceil($this->rollPage/2)? ceil($this->rollPage/2) :$this->nowPage);
             if($page!=$this->nowPage){
                 if($page<=$this->totalPages){
                     $linkPage .= "<a href='".str_replace('__PAGE__',$page,$url)."'>".$page."</a>";
